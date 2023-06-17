@@ -1,0 +1,337 @@
+{
+	"info": {
+		"_postman_id": "34cfaff2-c9c1-493c-b295-5d14c726d451",
+		"name": "ServiceNow -1st Week Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22341776"
+	},
+	"item": [
+		{
+			"name": "Getting the incidents with filter",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "x1LxXk4yK/I/",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dev103009.service-now.com/api/now/table/incident",
+					"protocol": "https",
+					"host": [
+						"dev103009",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"",
+						"api",
+						"now",
+						"table",
+						"incident"
+					],
+					"query": [
+						{
+							"key": "sysparm_fields",
+							"value": "sys_id,category",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "x1LxXk4yK/I/",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \r\n  \"category\": \"software\",\r\n  \"state\": \"007\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev103009.service-now.com/api/now/table/incident",
+					"protocol": "https",
+					"host": [
+						"dev103009",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"",
+						"api",
+						"now",
+						"table",
+						"incident"
+					],
+					"query": [
+						{
+							"key": "sysparm_fields",
+							"value": "sys_id,category",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put_update Records",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "x1LxXk4yK/I/",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n           \"made_sla\": \"false\",\r\n            \"approval\": \"requested\",\r\n            \"description\": \"Updated Successfully with Put Request\"\r\n        }\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev103009.service-now.com/api/now/table/incident/1c741bd70b2322007518478d83673af3",
+					"protocol": "https",
+					"host": [
+						"dev103009",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						"incident",
+						"1c741bd70b2322007518478d83673af3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify the Change of PUT request",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "x1LxXk4yK/I/",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dev103009.service-now.com/api/now/table/incident/1c741bd70b2322007518478d83673af3?sysparm_fields=sys_id,category,description,approval,made_sla",
+					"protocol": "https",
+					"host": [
+						"dev103009",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						"incident",
+						"1c741bd70b2322007518478d83673af3"
+					],
+					"query": [
+						{
+							"key": "sysparm_fields",
+							"value": "sys_id,category,description,approval,made_sla"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch_update Record",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "x1LxXk4yK/I/",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n           \"short_description\": \"Updated Successfully with Patch Request\",\r\n            \"category\": \"hardware\"\r\n            \r\n        }\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev103009.service-now.com/api/now/table/incident/ff4c21c4735123002728660c4cf6a758",
+					"protocol": "https",
+					"host": [
+						"dev103009",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						"incident",
+						"ff4c21c4735123002728660c4cf6a758"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify the Change of PATCHrequest",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "x1LxXk4yK/I/",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dev103009.service-now.com/api/now/table/incident/ff4c21c4735123002728660c4cf6a758?sysparm_fields=sys_id,category,short_description",
+					"protocol": "https",
+					"host": [
+						"dev103009",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						"incident",
+						"ff4c21c4735123002728660c4cf6a758"
+					],
+					"query": [
+						{
+							"key": "sysparm_fields",
+							"value": "sys_id,category,short_description"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteRecord",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "x1LxXk4yK/I/",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://dev103009.service-now.com//api/now/table/incident/46cebb88a9fe198101aee93734f9768b",
+					"protocol": "https",
+					"host": [
+						"dev103009",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"",
+						"api",
+						"now",
+						"table",
+						"incident",
+						"46cebb88a9fe198101aee93734f9768b"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
